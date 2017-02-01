@@ -1,11 +1,13 @@
 :imap jk <esc>
+:imap <C-e> <esc>A
 :set number
-":set autoindent
-:set tabstop=4
+:set autoindent
+:set foldcolumn=2
 :colorscheme elflord
 
 :nmap <CR> m'o<esc>''
 :nmap <Space> m'O<esc>''
+let mapleader = "\<C-Space>"
 
 
 :abbr joshinit #include<iostream>#include<cmath>using namespace std;//Joshua Knebel - jknebel@umich.eduint main(){	return 0;}jjkki	jj
@@ -15,12 +17,23 @@
 :abbr el else{<CR>
 :abbr ret return
 :abbr iff if(){}else {}jjkkkkkll
+:abbr #i #include<
 
 "Plugin Settings
 
 "AutoPair
 let g:AutoPairFlyMode=1
 
+"ctrlP
+let g:ctrlp_cmd = 'CtrlPMRU'
+
+"Latex
+let g:tex_flavor='latex'
+
+"compile plugin settings"
+"call SingleCompile#ChooseCompiler('filetype', 'compiler') //doesn't work
+nmap <F9> :SCCompile<cr>
+nmap <F10> :SCCompileRun<cr>
 
 
 "Incrementing Selected Numbers
@@ -57,6 +70,9 @@ vnoremap <C-a> :call Incr()<CR>
 	Plugin 'xolox/vim-notes'
 	Plugin 'xolox/vim-misc'
 	Plugin 'jiangmiao/auto-pairs'
+	Plugin 'xuhdev/SingleCompile'
+	Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
+	Plugin 'ervandew/supertab'
 	
 	call vundle#end()
 	filetype plugin indent on
@@ -72,3 +88,12 @@ vnoremap <C-a> :call Incr()<CR>
 	""see :h vundle for more details
 	""put your non-plugin stuff here
 
+"from mcantor/no_plugins talk
+set nocompatible
+filetype plugin on
+syntax enable
+set path=.,/user/include,~/engr151,~/Documents/my_c++_files,**
+set wildmenu
+command! MakeTags !ctags -R --exclude=.oldfiles
+"do I want this - Run :make to run RSpec
+set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
