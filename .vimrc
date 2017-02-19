@@ -6,8 +6,7 @@
 :colorscheme elflord
 
 :nmap <CR> m'o<esc>''
-:nmap <Space> m'O<esc>''
-let mapleader = "\<C-Space>"
+let mapleader = "\<Space>"
 
 
 :abbr joshinit #include<iostream>#include<cmath>using namespace std;//Joshua Knebel - jknebel@umich.eduint main(){	return 0;}jjkki	jj
@@ -73,6 +72,9 @@ vnoremap <C-a> :call Incr()<CR>
 	Plugin 'xuhdev/SingleCompile'
 	Plugin 'LaTeX-Suite-aka-Vim-LaTeX'
 	Plugin 'ervandew/supertab'
+	Plugin 'majutsushi/tagbar'
+	Plugin 'Lokaltog/vim-easymotion'
+	Plugin 'reewr/vim-monokai-pheonix'
 	
 	call vundle#end()
 	filetype plugin indent on
